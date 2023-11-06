@@ -1,0 +1,22 @@
+#ifndef structures_h
+#define structures_h
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct livro Livro;
+
+Livro *inicializar(void);
+
+void menu();
+
+void linha();
+
+Livro *inserirLivro(Livro *l, int codigo, char *titulo, char *assunto);
+
+Livro *removerLivro(Livro *l, int codigo);
+
+void exibirLivros(Livro *l);
+
+#endif
