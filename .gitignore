@@ -4,4 +4,8 @@
 .replit.nix
 .replit
 .breakpoints
+<<<<<<< HEAD
 .Makefile
+=======
+.Makefile
+>>>>>>> 19002a9 (last changes)
