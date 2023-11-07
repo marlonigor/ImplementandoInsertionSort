@@ -6,10 +6,16 @@
 int main(void) {
 
   Livro *biblioteca;
-  int opcao_menu, paginas;
+  int opcao_menu, codigo;
   char titulo[100], assunto[50];
 
   biblioteca = inicializar();
+
+  biblioteca = inserirLivro(biblioteca, 20, titulo, assunto);
+  biblioteca = inserirLivro(biblioteca, 9, titulo, assunto);
+  biblioteca = inserirLivro(biblioteca, 35, titulo, assunto);
+  biblioteca = inserirLivro(biblioteca, 22, titulo, assunto);
+  biblioteca = inserirLivro(biblioteca, 7, titulo, assunto);
 
   do {
     menu(); 
@@ -19,6 +25,10 @@ int main(void) {
   
     switch (opcao_menu) {
     case 1:
+
+      printf("Insira o código do livro:\n");
+      scanf("%d", &codigo);
+      
       printf("Insira o título do livro:\n");
       fgets(titulo, 100, stdin);
       while(getchar()!='\n');
@@ -26,19 +36,17 @@ int main(void) {
       printf("Insira o assunto desse livro:\n");
       fgets(assunto, 50, stdin);
   
-      printf("E a quantidade de páginas:\n");
-      scanf("%d", &paginas);
-  
-      biblioteca = inserirLivro(biblioteca, titulo, assunto, paginas);
+      biblioteca = inserirLivro(biblioteca, codigo, titulo, assunto);
       
-      //ordenacaoInsercao(biblioteca);   
+      insertionSort(&biblioteca);
       
       exibirLivros(biblioteca);
       break;
   
     case 2:
-      printf("Insira o título do livro:\n");
-      fgets(titulo, 100, stdin);
+      printf("Insira o código do livro:\n");
+      scanf("%d", &codigo);
+      biblioteca = removerLivro(biblioteca, codigo);
       break;
   
     case 3:

@@ -8,13 +8,13 @@
 
 typedef struct livro Livro;
 
-Livro *inicializar(void);
+Livro* inicializar(void);
 
 void menu();
 
 void linha();
 
-Livro *inserirLivro(Livro *l, int codigo, char *titulo, char *assunto);
+Livro* inserirLivro(Livro *l, int codigo, char *titulo, char *assunto);
 
 Livro *removerLivro(Livro *l, int codigo);
 

@@ -8,7 +8,7 @@ struct livro {
   struct livro *ant;
 };
 
-Livro *inicializar(void) { return NULL; }
+Livro* inicializar(void) { return NULL; }
 
 void menu(){
     puts("Sistema: Biblioteca Digital ");
@@ -27,7 +27,7 @@ void linha(){
   }
 }
 
-Livro *inserirLivro(Livro *l, int codigo, char *titulo, char *assunto) {
+Livro* inserirLivro(Livro *l, int codigo, char *titulo, char *assunto) {
   Livro *novo = (Livro *)malloc(sizeof(Livro));
   novo->codigo = codigo;
   novo->titulo = titulo;
@@ -36,7 +36,7 @@ Livro *inserirLivro(Livro *l, int codigo, char *titulo, char *assunto) {
   return novo;
 }
 
-Livro* remover(Livro* l, int valor){
+Livro* removerLivro(Livro* l, int valor){
   Livro* anterior = NULL;
   Livro* p = l;
   while (p != NULL && p->codigo != valor){
