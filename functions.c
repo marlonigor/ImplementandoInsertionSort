@@ -54,6 +54,33 @@ Livro* remover(Livro* l, int valor){
   return l;
 }
 
+void insertionSort(Livro **l) {
+  if (*l == NULL || (*l)->prox == NULL) {
+    return;
+  }
+
+  Livro *ordenado = NULL;  
+  Livro *atual = *l;
+
+  while (atual != NULL) {
+    Livro *prox = atual->prox;
+    if (ordenado == NULL || atual->codigo <= ordenado->codigo) {
+      atual->prox = ordenado;
+      ordenado = atual;
+    } else {
+      Livro *anterior = ordenado;
+      while (anterior->prox != NULL && anterior->prox->codigo < atual->codigo) {
+        anterior = anterior->prox;
+      }
+      atual->prox = anterior->prox;
+      anterior->prox = atual;
+    }
+    atual = prox;
+  }
+
+  *l = ordenado;
+}
+
 void exibirLivros(Livro *l) {
   Livro *p;
   printf("\nLivros:\n");

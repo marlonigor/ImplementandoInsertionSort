@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 typedef struct livro Livro;
 
@@ -16,6 +17,8 @@ void linha();
 Livro *inserirLivro(Livro *l, int codigo, char *titulo, char *assunto);
 
 Livro *removerLivro(Livro *l, int codigo);
+
+void insertionSort(Livro **l);
 
 void exibirLivros(Livro *l);
 
