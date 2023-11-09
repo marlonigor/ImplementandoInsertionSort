@@ -4,19 +4,18 @@ int main(void) {
 
   Livro *biblioteca;
   int opcao_menu, codigo;
-  char titulo[100], assunto[50];
+  char titulo[100], categoria[50];
 
   biblioteca = inicializar();
 
-  biblioteca = inserirLivro(biblioteca, 20, titulo, assunto);
-  biblioteca = inserirLivro(biblioteca, 9, titulo, assunto);
-  biblioteca = inserirLivro(biblioteca, 35, titulo, assunto);
-  biblioteca = inserirLivro(biblioteca, 22, titulo, assunto);
-  biblioteca = inserirLivro(biblioteca, 7, titulo, assunto);
+  biblioteca = inserirLivro(biblioteca, 20, titulo, categoria);
+  biblioteca = inserirLivro(biblioteca, 9, titulo, categoria);
+  biblioteca = inserirLivro(biblioteca, 35, titulo, categoria);
+  biblioteca = inserirLivro(biblioteca, 22, titulo, categoria);
+  biblioteca = inserirLivro(biblioteca, 7, titulo, categoria);
 
   do {
     menu(); 
-  
     printf("\nEscolha entre as opções a seguir:\n");
     scanf("%d", &opcao_menu);
   
@@ -29,10 +28,10 @@ int main(void) {
       fgets(titulo, 100, stdin);
       while(getchar()!='\n');
       
-      printf("Insira o assunto desse livro:\n");
-      fgets(assunto, 50, stdin);
+      printf("Insira a categoria desse livro:\n");
+      fgets(categoria, 50, stdin);
   
-      biblioteca = inserirLivro(biblioteca, codigo, titulo, assunto);
+      biblioteca = inserirLivro(biblioteca, codigo, titulo, categoria);
       
       insertionSort(&biblioteca);
       
