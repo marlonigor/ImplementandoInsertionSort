@@ -1,37 +1,36 @@
 #include "structures.h"
 
 int main(void) {
-
+  
   Livro *biblioteca;
   int opcao_menu, codigo;
-  char titulo[100], categoria[50];
+  char titulo[50], autor[25];
 
   biblioteca = inicializar();
 
-  biblioteca = inserirLivro(biblioteca, 20, titulo, categoria);
-  biblioteca = inserirLivro(biblioteca, 9, titulo, categoria);
-  biblioteca = inserirLivro(biblioteca, 35, titulo, categoria);
-  biblioteca = inserirLivro(biblioteca, 22, titulo, categoria);
-  biblioteca = inserirLivro(biblioteca, 7, titulo, categoria);
+  biblioteca = inserirLivro(biblioteca, 20, "Moby Dick", "Herman Melville");
+  biblioteca = inserirLivro(biblioteca, 9, "A Divina Comédia", "Dante");
+  biblioteca = inserirLivro(biblioteca, 35, "Arte da Guerra", "Sun Tzu");
+  biblioteca = inserirLivro(biblioteca, 22, "Ilíada", "Homero");
+  biblioteca = inserirLivro(biblioteca, 7, "1984", "George Orwell");
 
   do {
     menu(); 
-    printf("\nEscolha entre as opções a seguir:\n");
+    puts("\nEscolha entre as opções a seguir:\n");
     scanf("%d", &opcao_menu);
   
     switch (opcao_menu) { 
     case 1:
-      printf("Insira o código do livro:\n");
+      puts("Insira o código do livro:");
       scanf("%d", &codigo);
-      
-      printf("Insira o título do livro:\n");
-      fgets(titulo, 100, stdin);
       while(getchar()!='\n');
-      
-      printf("Insira a categoria desse livro:\n");
-      fgets(categoria, 50, stdin);
+      puts("Insira o título do livro:");
+      fgets(titulo, sizeof(titulo), stdin);
+      titulo[strcspn(titulo, "\n")] = '\0';
+      puts("Insira o autor desse livro:");
+      fgets(autor, sizeof(autor), stdin);
   
-      biblioteca = inserirLivro(biblioteca, codigo, titulo, categoria);
+      biblioteca = inserirLivro(biblioteca, codigo, titulo, autor);
       
       insertionSort(&biblioteca);
       
@@ -39,7 +38,7 @@ int main(void) {
       break;
   
     case 2:
-      printf("Insira o código do livro:\n");
+      puts("Insira o código do livro:");
       scanf("%d", &codigo);
       biblioteca = removerLivro(biblioteca, codigo);
       exibirLivros(biblioteca);

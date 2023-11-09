@@ -11,7 +11,7 @@ typedef struct livro Livro;
 Livro* inicializar(void);
 void menu();
 void linha();
-Livro* inserirLivro(Livro *l, int codigo, char *titulo, char *categoria);
+Livro* inserirLivro(Livro *l, int codigo, char *titulo, char *autor);
 Livro* removerLivro(Livro *l, int codigo);
 void insertionSort(Livro **l);
 void exibirLivros(Livro *l);

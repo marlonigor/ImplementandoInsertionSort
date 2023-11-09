@@ -3,7 +3,7 @@
 struct livro {
   int codigo;
   char *titulo;
-  char *categoria;
+  char *autor;
   struct livro *prox;
   struct livro *ant;
 };
@@ -16,6 +16,7 @@ void menu(){
     puts("\nEscolha entre as opções a seguir:\n");
     puts("1. Inserir um livro");
     puts("2. Remover um livro");
+    puts("3. Ordenar livros");
     puts("3. Exibir todos os livros");
     puts("4. Sair do programa");
 }
@@ -27,11 +28,11 @@ void linha(){
   }
 }
 
-Livro* inserirLivro(Livro *l, int codigo, char *titulo, char *categoria) {
+Livro* inserirLivro(Livro *l, int codigo, char *titulo, char *autor) {
   Livro *novo = (Livro *)malloc(sizeof(Livro));
   novo->codigo = codigo;
   novo->titulo = titulo;
-  novo->categoria = categoria;
+  novo->autor = autor;
   novo->prox = l;
   return novo;
 }
@@ -85,7 +86,7 @@ void exibirLivros(Livro *l) {
   Livro *p;
   printf("\nLivros:\n");
   for (p = l; p != NULL; p = p->prox) {
-    printf("%d. %s - %s", p->codigo, p->titulo, p->categoria);
+    printf("%d. %s - %s\n", p->codigo, p->titulo, p->autor);
   }
   printf("\n");
 }
